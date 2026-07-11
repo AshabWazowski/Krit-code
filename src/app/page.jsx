@@ -1,21 +1,25 @@
-import { Hero } from "@/components/ui/Hero";
-import { ClientsMarquee } from "@/components/ui/ClientsMarquee";
-import { ServicesBento } from "@/components/ui/ServicesBento";
-import { AchievementsCounter } from "@/components/ui/AchievementsCounter";
-import { Pricing } from "@/components/ui/Pricing";
-import { ReviewsCarousel } from "@/components/ui/ReviewsCarousel";
-import { Footer } from "@/components/ui/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { Stats } from "@/components/sections/Stats";
+import { Services } from "@/components/sections/Services";
+import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
+import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
+import { TestimonialSlider } from "@/components/sections/TestimonialSlider";
+import { TeamSection } from "@/components/sections/TeamSection";
+import { BlogGrid } from "@/components/sections/BlogGrid";
+import { ContactForm } from "@/components/sections/ContactForm";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/30 selection:text-primary-foreground flex flex-col items-center w-full overflow-hidden">
+    <>
       <Hero />
-      <ClientsMarquee />
-      <ServicesBento />
-      <AchievementsCounter />
-      <Pricing />
-      <ReviewsCarousel />
-      <Footer />
-    </main>
+      <Stats />
+      <Services />
+      <ProcessTimeline />
+      <PortfolioGrid />
+      <TestimonialSlider />
+      <TeamSection />
+      <BlogGrid />
+      <ContactForm />
+    </>
   );
 }
