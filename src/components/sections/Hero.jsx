@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "gsap";
 
 const projects = [
@@ -56,18 +57,18 @@ export function Hero() {
             <h1 ref={headlineRef} className="text-5xl md:text-7xl lg:text-8xl font-clash font-medium leading-[1.1] mb-8">
               <div className="overflow-hidden"><span className="block">We Create</span></div>
               <div className="overflow-hidden"><span className="block italic text-accent-green">Digital Products</span></div>
-              <div className="overflow-hidden"><span className="block">That Move</span></div>
-              <div className="overflow-hidden"><span className="block">Businesses Forward</span></div>
+              <div className="overflow-hidden"><span className="block">That Handles</span></div>
+              <div className="overflow-hidden"><span className="block">Businesses Workflow</span></div>
             </h1>
             
             <p className="text-lg md:text-xl text-muted max-w-xl mb-12 animate-fade-in-up" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
-              Helping ambitious startups and established companies craft meaningful digital experiences through strategy, design, and technology.
+              Your all-in-one digital foundation: Custom workflow dashboards and expert setup for your Social profiles.
             </p>
             
             <div className="flex flex-wrap gap-6 animate-fade-in-up" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
-              <button className="px-8 py-4 bg-accent-green hover:bg-accent-yellow text-background rounded-full font-medium transition-colors">
+              <Link href="/v1/book-appointment" className="px-8 py-4 bg-accent-green hover:bg-accent-yellow text-background rounded-full font-medium transition-colors inline-block text-center">
                 Start Your Project
-              </button>
+              </Link>
               <button className="px-8 py-4 border border-border hover:bg-card rounded-full font-medium transition-colors">
                 View Our Work
               </button>

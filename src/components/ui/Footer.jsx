@@ -11,7 +11,7 @@ export const Footer = () => {
                     {/* Brand */}
                     <div className="lg:col-span-1">
                         <h3 className="text-3xl font-extrabold tracking-tight mb-4">
-                            Krit<span className="text-primary">Code</span>
+                            Biz<span className="text-primary">Dash</span>
                         </h3>
                         <p className="text-foreground/60 text-sm leading-relaxed mb-6">
                             Elevating digital presence through expert engineering, stunning UI/UX, and results-driven strategies.
@@ -69,7 +69,7 @@ export const Footer = () => {
 
                 <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-foreground/40">
-                        © {new Date().getFullYear()} KritCode. All Rights Reserved.
+                        © {new Date().getFullYear()} BizDash. All Rights Reserved.
                     </p>
                     <div className="flex gap-6 text-xs text-foreground/40">
                         <a href="#" className="hover:text-foreground transition-colors">English (US)</a>
