@@ -11,21 +11,21 @@ const team = [
   {
     name: "Haider Abidi",
     role: "Creative Director",
-    bio: "Former lead at major agencies, Alex brings a visionary approach to digital brand experiences.",
+    bio: "Former lead at major agencies, Haider brings a visionary approach to digital brand experiences.",
     image: "/assets/Haider.png",
     shape: "bg-accent-green"
   },
   {
     name: "Suhail Abbas",
     role: "Lead Designer",
-    bio: "Obsessed with micro-interactions and editorial typography. Sophia crafts intuitive interfaces.",
+    bio: "Obsessed with micro-interactions and editorial typography. Suhail crafts intuitive interfaces.",
     image: "/assets/Suhail.png",
     shape: "bg-accent-yellow"
   },
   {
     name: "Haider Abidi",
     role: "Technical Lead",
-    bio: "A master of modern web frameworks, Marcus ensures our bold designs perform flawlessly.",
+    bio: "A master of modern web frameworks, Haider ensures our bold designs perform flawlessly.",
     image: "/assets/Haider.png",
     shape: "bg-muted/30"
   }

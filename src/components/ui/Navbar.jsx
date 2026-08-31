@@ -23,17 +23,22 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold font-clash tracking-wide uppercase">
-         Krit<span className="text-accent-green">Code</span>
+         Biz<span className="text-accent-green">Dash</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          {["Work", "Services", "Studio", "Journal", "Contact"].map((item) => (
+          {[
+            { name: "Work", path: "/work" },
+            { name: "Services", path: "/services" },
+            { name: "Articles", path: "/article" },
+            { name: "Contact", path: "/v1/book-appointment" }
+          ].map((item) => (
             <Link
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.name}
+              href={item.path}
               className="text-sm font-medium text-muted hover:text-foreground transition-colors"
             >
-              {item}
+              {item.name}
             </Link>
           ))}
         </nav>
@@ -43,7 +48,7 @@ export function Navbar() {
           whileTap={{ scale: 0.95 }}
         >
           <Link
-            href="#contact"
+            href="/v1/book-appointment"
             className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-background bg-accent-green hover:bg-accent-yellow transition-colors rounded-full"
           >
             Book Strategy Call

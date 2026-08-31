@@ -8,7 +8,7 @@ const reviews = [
     {
         name: "Daniel Henry",
         role: "Managing Director",
-        review: "Lorem ipsum is simply dummy text of the printing and typesetting industry. KritCode has been the industry's standard for our online marketing strategy.",
+        review: "Lorem ipsum is simply dummy text of the printing and typesetting industry. BizDash has been the industry's standard for our online marketing strategy.",
         rating: 4.5,
         avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
     },

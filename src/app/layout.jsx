@@ -10,8 +10,31 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Digital Agency | We Create Digital Products",
-  description: "Helping ambitious startups and established companies craft meaningful digital experiences.",
+  title: "Best Web Development Agency | AI Web App Builder",
+  description: "Looking for the best web development agency in India? We are a custom web development agency offering ecommerce web development and AI web app builder services near you.",
+  keywords: "Web Development, web development agency, web development agency in bangalore, web development agency near me, ecommerce web development agency, web development agency in pune, web development agency in Ahmedabad, web development agency in delhi, custom web development agency, web development agency in india, web development agency in Noida, best web development agency, best web development agency in india, ai web app builder, free ai web app builder, ai web app creator, ai web app developer",
+  openGraph: {
+    title: "Best Web Development Agency | AI Web App Builder",
+    description: "Looking for the best web development agency in India? We are a custom web development agency offering ecommerce web development and AI web app builder services near you.",
+    url: "https://yourwebsite.com",
+    siteName: "Web Development Agency",
+    images: [
+      {
+        url: "https://yourwebsite.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Web Development Agency",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Web Development Agency | AI Web App Builder",
+    description: "Looking for the best web development agency in India? We are a custom web development agency offering ecommerce web development and AI web app builder services near you.",
+    images: ["https://yourwebsite.com/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }) {

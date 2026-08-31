@@ -6,7 +6,9 @@ import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
 import { TestimonialSlider } from "@/components/sections/TestimonialSlider";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { BlogGrid } from "@/components/sections/BlogGrid";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { SeoContent } from "@/components/sections/SeoContent";
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
       <TeamSection />
       <BlogGrid />
       <ContactForm />
+      <FaqSection />
+      {/* <SeoContent /> */}
     </>
   );
 }

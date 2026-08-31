@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -68,7 +69,7 @@ export function BlogGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {articles.map((article, index) => (
-            <div key={index} className="blog-card group cursor-pointer flex flex-col h-full">
+            <Link href="/article" key={index} className="blog-card group cursor-pointer flex flex-col h-full">
               
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden mb-8">
                 <Image
@@ -101,7 +102,7 @@ export function BlogGrid() {
                 </div>
               </div>
               
-            </div>
+            </Link>
           ))}
         </div>
         

@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -64,15 +65,15 @@ export function ContactForm() {
               <div>
                 <h4 className="font-medium mb-2">Office</h4>
                 <address className="text-xl md:text-2xl font-clash text-muted not-italic">
-                  100 Creative Way<br />San Francisco, CA 94107
+                  <br />San Francisco, CA 94107
                 </address>
               </div>
             </div>
             
             <div>
-              <button className="inline-flex items-center gap-2 px-8 py-4 text-background bg-foreground hover:bg-accent-green transition-colors rounded-full font-medium">
+              <Link href="/v1/book-appointment" className="inline-flex items-center gap-2 px-8 py-4 text-background bg-foreground hover:bg-accent-green transition-colors rounded-full font-medium">
                 Schedule Consultation <ArrowUpRight className="w-5 h-5" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -121,7 +122,7 @@ export function ContactForm() {
                     placeholder=" "
                   />
                   <label htmlFor="company" className="absolute left-0 top-4 text-muted peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent-green peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-muted transition-all duration-300 pointer-events-none">
-                    Company
+                    Business Name
                   </label>
                 </div>
               </div>
@@ -140,7 +141,7 @@ export function ContactForm() {
                 {errors.email && <span className="text-red-400 text-sm mt-1 absolute -bottom-6 left-0">{errors.email.message}</span>}
               </div>
               
-              <div className="space-y-4 pt-4">
+              {/* <div className="space-y-4 pt-4">
                 <label className="text-sm text-muted">Project Type</label>
                 <div className="flex flex-wrap gap-3">
                   {projectTypes.map((type) => (
@@ -166,7 +167,7 @@ export function ContactForm() {
                     </label>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               <div className="relative group pt-4">
                 <textarea
@@ -177,7 +178,7 @@ export function ContactForm() {
                   placeholder=" "
                 />
                 <label htmlFor="message" className="absolute left-0 top-8 text-muted peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent-green peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-muted transition-all duration-300 pointer-events-none">
-                  Project Details*
+                  Enquiry*
                 </label>
                 {errors.message && <span className="text-red-400 text-sm mt-1 absolute -bottom-6 left-0">{errors.message.message}</span>}
               </div>
