@@ -51,10 +51,10 @@ export function ContactForm() {
           {/* Left Side Content */}
           <div className="flex flex-col justify-center">
             <h2 className="text-5xl md:text-7xl font-clash font-medium leading-[1.1] mb-8">
-              Let's Build Something <span className="italic text-accent-green">Exceptional</span>
+              Let&apos;s Build Something <span className="italic text-accent-green">Exceptional</span>
             </h2>
             <p className="text-xl text-muted max-w-md mb-12">
-              Whether you're launching a startup or scaling an enterprise, we'd love to hear about your vision.
+              Whether you&apos;re launching a startup or scaling an enterprise, we&apos;d love to hear about your vision.
             </p>
             
             <div className="space-y-8 mb-12">

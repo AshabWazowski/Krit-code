@@ -24,7 +24,7 @@ export const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed"
                 >
-                    We build high-converting, fully responsive web applications utilizing dark/light mode best practices and sophisticated 3D aesthetics. Let's make your vision a reality.
+                    We build high-converting, fully responsive web applications utilizing dark/light mode best practices and sophisticated 3D aesthetics. Let&apos;s make your vision a reality.
                 </motion.p>
 
                 <motion.div

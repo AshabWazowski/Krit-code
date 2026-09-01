@@ -71,7 +71,7 @@ export const ReviewsCarousel = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-foreground/70 text-lg max-w-2xl mx-auto"
                 >
-                    Don't just take our word for it. Here's what some of our amazing clients have to say about working with us.
+                    Don&apos;t just take our word for it. Here&apos;s what some of our amazing clients have to say about working with us.
                 </motion.p>
             </div>
 

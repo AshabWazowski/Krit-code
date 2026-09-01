@@ -19,7 +19,7 @@ const projects = [
     category: "E-commerce",
     description: "A modern, high-converting e-commerce storefront with seamless checkout, inventory management, and personalized recommendations. Designed to maximize conversion rates.",
     image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=1200",
-    link: "#"
+    link: "https://dancing-torrone-36031d.netlify.app"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const projects = [
     category: "Web Application",
     description: "A secure patient portal for booking appointments, accessing medical records, and telemedicine consultations. HIPAA compliant architecture with a focus on accessibility.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200",
-    link: "#"
+    link: "https://fastidious-souffle-5432c4.netlify.app"
   },
   {
     id: 4,
@@ -105,7 +105,7 @@ export default function WorkPage() {
         <div className="mt-32 text-center glass p-12 md:p-20 rounded-[3rem]">
           <h2 className="text-4xl md:text-5xl font-clash font-medium mb-6">Have a project in mind?</h2>
           <p className="text-muted text-xl mb-10 max-w-2xl mx-auto">
-            Let's work together to build something extraordinary. We're currently taking on new projects.
+            Let&apos;s work together to build something extraordinary. We&apos;re currently taking on new projects.
           </p>
           <Link 
             href="/v1/book-appointment"
