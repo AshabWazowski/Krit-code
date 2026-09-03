@@ -10,8 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 const team = [
   {
     name: "Haider Abidi",
-    role: "Creative Director",
-    bio: "Former lead at major agencies, Haider brings a visionary approach to digital brand experiences.",
+    role: "Founder and Creative Director",
+    bio: "Technical Lead and business development specialist who brings a visionary approach to digital brand experiences.",
     image: "/assets/Haider.png",
     shape: "bg-accent-green"
   },
@@ -22,13 +22,13 @@ const team = [
     image: "/assets/Suhail.png",
     shape: "bg-accent-yellow"
   },
-  {
-    name: "Haider Abidi",
-    role: "Technical Lead",
-    bio: "A master of modern web frameworks, Haider ensures our bold designs perform flawlessly.",
-    image: "/assets/Haider.png",
-    shape: "bg-muted/30"
-  }
+  // {
+  //   name: "Haider Abidi",
+  //   role: "Technical Lead",
+  //   bio: "A master of modern web frameworks, Haider ensures our bold designs perform flawlessly.",
+  //   image: "/assets/Haider.png",
+  //   shape: "bg-muted/30"
+  // }
 ];
 
 export function TeamSection() {
@@ -63,7 +63,7 @@ export function TeamSection() {
           Meet the <span className="italic text-accent-green">People</span> Behind the Work
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-16">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center gap-16 md:gap-8 lg:gap-16">
           {team.map((member, index) => (
             <div key={index} className="team-member flex flex-col items-center text-center group cursor-pointer">
               

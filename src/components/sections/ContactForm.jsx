@@ -12,6 +12,7 @@ const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   company: z.string().optional(),
   email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone number is required"),
   budget: z.string().optional(),
   projectType: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
@@ -33,11 +34,28 @@ export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = async (data) => {
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log(data);
-    reset();
-    setIsSubmitted(true);
+    try {
+      const payload = {
+        name: data.name,
+        email: data.email,
+        phone: Number(data.phone.replace(/\D/g, "")),
+        enquiry: data.message,
+        type: "enquiry"
+      };
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        reset();
+        setIsSubmitted(true);
+      } else {
+        console.error("Submission failed");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -127,18 +145,34 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="relative group">
-                <input
-                  {...register("email")}
-                  id="email"
-                  type="email"
-                  className="w-full bg-transparent border-b border-border py-4 focus:outline-none focus:border-accent-green transition-colors peer text-lg"
-                  placeholder=" "
-                />
-                <label htmlFor="email" className="absolute left-0 top-4 text-muted peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent-green peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-muted transition-all duration-300 pointer-events-none">
-                  Email*
-                </label>
-                {errors.email && <span className="text-red-400 text-sm mt-1 absolute -bottom-6 left-0">{errors.email.message}</span>}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div className="relative group">
+                  <input
+                    {...register("email")}
+                    id="email"
+                    type="email"
+                    className="w-full bg-transparent border-b border-border py-4 focus:outline-none focus:border-accent-green transition-colors peer text-lg"
+                    placeholder=" "
+                  />
+                  <label htmlFor="email" className="absolute left-0 top-4 text-muted peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent-green peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-muted transition-all duration-300 pointer-events-none">
+                    Email*
+                  </label>
+                  {errors.email && <span className="text-red-400 text-sm mt-1 absolute -bottom-6 left-0">{errors.email.message}</span>}
+                </div>
+
+                <div className="relative group">
+                  <input
+                    {...register("phone")}
+                    id="phone"
+                    type="tel"
+                    className="w-full bg-transparent border-b border-border py-4 focus:outline-none focus:border-accent-green transition-colors peer text-lg"
+                    placeholder=" "
+                  />
+                  <label htmlFor="phone" className="absolute left-0 top-4 text-muted peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent-green peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-muted transition-all duration-300 pointer-events-none">
+                    Phone*
+                  </label>
+                  {errors.phone && <span className="text-red-400 text-sm mt-1 absolute -bottom-6 left-0">{errors.phone.message}</span>}
+                </div>
               </div>
               
               {/* <div className="space-y-4 pt-4">

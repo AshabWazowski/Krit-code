@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,12 +10,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
-  { title: "Nova Commerce", category: "E-commerce Platform", image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800", colSpan: "md:col-span-8", rowSpan: "md:row-span-2" },
-  { title: "Atlas Finance", category: "FinTech Dashboard", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800", colSpan: "md:col-span-4", rowSpan: "md:row-span-1" },
-  { title: "Pulse Health", category: "Healthcare Platform", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800", colSpan: "md:col-span-4", rowSpan: "md:row-span-1" },
+  
+  { title: "Social Plus", category: "Social Media App", image: "/assets/socialMedia.png", colSpan: "md:col-span-8", rowSpan: "md:row-span-1" },
+  { title: "Qiespend", category: "FinTech Dashboard", image: "/assets/fintech.png", colSpan: "md:col-span-4", rowSpan: "md:row-span-1" },
+  { title: "CareDash", category: "Healthcare Platform", image: "/assets/healthcare.png", colSpan: "md:col-span-4", rowSpan: "md:row-span-1" },
+  { title: "Aura Commerce", category: "E-commerce Platform", image: "/assets/e-com.png", colSpan: "md:col-span-8", rowSpan: "md:row-span-2" },
   { title: "Vertex AI", category: "Artificial Intelligence", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800", colSpan: "md:col-span-4", rowSpan: "md:row-span-2" },
-  { title: "Luna Studio", category: "Creative Portfolio", image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800", colSpan: "md:col-span-8", rowSpan: "md:row-span-1" },
-  { title: "Orbit CRM", category: "SaaS Dashboard", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800", colSpan: "md:col-span-8", rowSpan: "md:row-span-1" }
+  { title: "Happy Nails", category: "Luxury Spa-Nail Salon", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800", colSpan: "md:col-span-8", rowSpan: "md:row-span-1" }
 ];
 
 export function PortfolioGrid() {
@@ -49,9 +51,9 @@ export function PortfolioGrid() {
           <h2 className="text-5xl md:text-7xl font-clash font-medium text-balance max-w-xl">
             Selected <span className="italic text-accent-green">Works</span>
           </h2>
-          <button className="hidden md:inline-flex px-8 py-4 border border-border hover:bg-card rounded-full font-medium transition-colors">
+          <Link href="/work" className="hidden md:inline-flex px-8 py-4 border border-border hover:bg-card rounded-full font-medium transition-colors">
             View All Projects
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -29,6 +29,30 @@ export function BookingForm() {
   const [selectedDuration, setSelectedDuration] = useState(30);
   const [selectedTime, setSelectedTime] = useState(null);
   const [step, setStep] = useState(1); // 1: Date/Time, 2: Form, 3: Success
+  const [bookedSlots, setBookedSlots] = useState([]);
+
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        const res = await fetch("/api/bookings");
+        if (res.ok) {
+          const json = await res.json();
+          const bookings = [];
+          if (json.data) {
+            json.data.forEach(user => {
+              if (user.bookings) {
+                user.bookings.forEach(booking => bookings.push(booking));
+              }
+            });
+          }
+          setBookedSlots(bookings);
+        }
+      } catch (error) {
+        console.error("Failed to fetch bookings", error);
+      }
+    };
+    fetchBookings();
+  }, []);
 
   const {
     register,
@@ -88,10 +112,32 @@ export function BookingForm() {
   };
 
   const onSubmit = async (data) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Booking Data:", { ...data, date: selectedDate, time: selectedTime, duration: selectedDuration });
-    setStep(3);
+    try {
+      const payload = {
+        name: data.fullName,
+        email: data.email,
+        phone: Number(data.phone.replace(/\D/g, "")),
+        projectType: data.projectType,
+        budget: data.budget,
+        enquiry: data.details,
+        type: "booking",
+        date: selectedDate.toISOString().split("T")[0],
+        time: selectedTime
+      };
+
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        setStep(3);
+      } else {
+        console.error("Booking failed");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -218,22 +264,39 @@ export function BookingForm() {
                     {selectedDate.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' })} (IST)
                   </div>
                   
-                  {generateTimeSlots().map((time) => (
+                  {generateTimeSlots().map((time) => {
+                    // Extract local YYYY-MM-DD instead of UTC to match how users select dates in local timezone
+                    const offset = selectedDate.getTimezoneOffset() * 60000;
+                    const localDate = new Date(selectedDate.getTime() - offset);
+                    const selectedDateStr = localDate.toISOString().split("T")[0];
+                    
+                    const isBooked = bookedSlots.some(b => {
+                      if (!b.date || !b.time) return false;
+                      const bDate = new Date(b.date);
+                      const bOffset = bDate.getTimezoneOffset() * 60000;
+                      const bDateLocalStr = new Date(bDate.getTime() - bOffset).toISOString().split("T")[0];
+                      return bDateLocalStr === selectedDateStr && b.time === time;
+                    });
+                    
+                    return (
                     <div key={time} className="flex gap-2">
                       <button
-                        onClick={() => setSelectedTime(time)}
+                        onClick={() => !isBooked && setSelectedTime(time)}
+                        disabled={isBooked}
                         className={clsx(
                           "flex-1 py-3 px-4 rounded-xl text-sm font-medium transition-all border",
-                          selectedTime === time
-                            ? "bg-accent-green text-background border-accent-green"
-                            : "bg-transparent border-border hover:border-accent-green hover:text-accent-green"
+                          isBooked
+                            ? "bg-black/10 border-border/50 text-muted/30 cursor-not-allowed line-through"
+                            : selectedTime === time
+                              ? "bg-accent-green text-background border-accent-green"
+                              : "bg-transparent border-border hover:border-accent-green hover:text-accent-green"
                         )}
                       >
-                        {time}
+                        {time} {isBooked && "(Booked)"}
                       </button>
                       
                       {/* Show confirm button next to selected time */}
-                      {selectedTime === time && (
+                      {selectedTime === time && !isBooked && (
                         <motion.button
                           initial={{ opacity: 0, width: 0 }}
                           animate={{ opacity: 1, width: "auto" }}
@@ -244,7 +307,8 @@ export function BookingForm() {
                         </motion.button>
                       )}
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>

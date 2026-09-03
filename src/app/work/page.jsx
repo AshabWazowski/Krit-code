@@ -10,32 +10,48 @@ const projects = [
     title: "FinTech Dashboard",
     category: "Web Application",
     description: "A comprehensive financial dashboard allowing users to track investments, manage portfolios, and analyze market trends in real-time. Built with modern web technologies for blazing fast performance.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
-    link: "#"
+    image: "/assets/fintech.png",
+    link: "https://fintech-dashboard-drab-xi.vercel.app"
   },
   {
     id: 2,
     title: "E-Commerce Platform",
     category: "E-commerce",
     description: "A modern, high-converting e-commerce storefront with seamless checkout, inventory management, and personalized recommendations. Designed to maximize conversion rates.",
-    image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=1200",
+    image: "/assets/e-com.png",
     link: "https://dancing-torrone-36031d.netlify.app"
   },
   {
     id: 3,
     title: "Healthcare Portal",
     category: "Web Application",
-    description: "A secure patient portal for booking appointments, accessing medical records, and telemedicine consultations. HIPAA compliant architecture with a focus on accessibility.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200",
+    description: "A secure clinic portal for booking appointments, accessing medical records, and telemedicine consultations. careDash compliant architecture with a focus on accessibility.",
+    image: "/assets/healthcare.png",
     link: "https://fastidious-souffle-5432c4.netlify.app"
   },
   {
     id: 4,
-    title: "AI Analytics Tool",
-    category: "SaaS",
-    description: "An AI-powered analytics platform that helps businesses uncover actionable insights from complex datasets. Features custom data visualization and natural language querying.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
-    link: "#"
+    title: "SocialPlus",
+    category: "Social Media App",
+    description: "A Gen-Z social platform to share thoughts and ideas. Connect with like-minded people and share your creativity with the world.",
+    image: "/assets/socialMedia.png",
+    link: "https://social-plus-client.vercel.app"
+  },
+  {
+    id: 5,
+    title: "Happy Nails",
+    category: "Luxury Spa Salon",
+    description: "Experience the luxury of premium nail care with Happy Nails. A full-featured booking platform with a stunning, minimalist design.",
+    image: "/assets/salon.png",
+    link: "https://my-salon-nu.vercel.app/"
+  },
+  {
+    id: 6,
+    title: "The Care Wellness",
+    category: "Healthcare Platform",
+    description: "A premium healthcare platform for wellness and medical services. Streamlined booking and patient care management.",
+    image: "/assets/careWellness.png",
+    link: "https://thecarewellness.haiderabbasabidi.com/"
   }
 ];
 
